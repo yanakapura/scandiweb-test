@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+  color: #1D1F22;
+}
+
+.brightness {
+  filter: brightness(.828);
+  background: rgba(57, 55, 72, 0.22);
+}
+
+main {
+  padding:100px;
+}
+
+.btn {
+    border: 1px solid #1D1F22;
+    background-color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.btn-green {
+  background-color: #5ece7b;
+  color: #fff;
+  border: none;
+}

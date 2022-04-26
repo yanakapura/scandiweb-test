@@ -1,0 +1,19 @@
+.currencies {
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.arrow {
+    margin-left: 10px;
+}
+
+.arrow__img {
+    transform: translate(0, -100%) rotate(0);
+    transition: .5s;
+}
+
+.arrow__img-active {
+    transform: translate(0, -100%) rotate(180deg);
+}

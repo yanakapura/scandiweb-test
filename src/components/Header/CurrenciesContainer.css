@@ -1,0 +1,24 @@
+.currencies__container {
+    position: absolute;
+    top: 35px;
+    left: -30%;
+    list-style: none;
+    background-color: #fff;
+    padding: 20px;
+    padding-right: 30px;
+    font-weight: 500;
+    filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.19));
+}
+
+.currencies__item {
+    line-height: 160%;
+    cursor: pointer;
+}
+
+.currencies__item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.currencies__symbol {
+    margin-right: 5px;
+}

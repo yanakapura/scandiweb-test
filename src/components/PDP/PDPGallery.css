@@ -1,0 +1,19 @@
+.pdp__gallery {
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+  }
+  
+  .gallery__item {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .gallery__img {
+    width: 100%;
+    height: auto;
+  }
+  

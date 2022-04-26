@@ -1,0 +1,59 @@
+.attributes__attribute {
+  margin-bottom: 40px;
+}
+
+.attributes__title {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.form-group__item {
+  display: inline-block;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.attributes__value {
+  height: 45px;
+  width: 63px;
+  border: 1px solid #1d1f22;
+  font-family: "Source Sans Pro";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+.form-group {
+  display: inline-block;
+  /* overflow: hidden; */
+  border: none;
+}
+.form-group input[type="radio"] {
+  display: none;
+}
+
+/* Checked */
+.form-group input[type="radio"]:checked + label {
+  background: #1d1f22;
+  color: #fff;
+  border: 3px solid #1d1f22;
+  /* margin: 2px; */
+}
+
+/* Hover */
+.form-group label:hover {
+  color: #666;
+}
+
+/* Disabled */
+.form-group input[type="radio"]:disabled + label {
+  opacity: .5;
+  cursor: auto;
+}

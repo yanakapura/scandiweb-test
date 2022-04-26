@@ -1,0 +1,11 @@
+.pdp__price {
+  margin: 10px 0 20px;
+}
+
+.pdp__price span {
+  display: flex;
+  align-self: center;
+  font-size: 24px;
+  font-weight: 700;
+  height: 46px;
+}
