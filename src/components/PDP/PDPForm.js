@@ -36,7 +36,7 @@ class PDPForm extends Component {
           <PDPAttributes onBtnCheck={this.btnCheck} />
         </ul>
         <PDPPrice/>
-        <button type="submit" className="btn btn-green pdp__button">
+        <button type="button" className="btn btn-green pdp__button">
           Add to card
         </button>
       </form>

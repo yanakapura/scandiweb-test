@@ -8,6 +8,7 @@ class CartOverlay extends Component {
     this.state = {
       counter: 1,
       total: 0,
+      // repeatingProduct: 0,
       //   cart: JSON.parse(sessionStorage.getItem("cart")),
       //   inputs: JSON.parse(sessionStorage.getItem("inputs")),
     };
@@ -29,7 +30,6 @@ class CartOverlay extends Component {
   }
 
   calcTotal() {
-
     let sum = 0;
     for (let product of this.context.cartProducts) {
       const productNumber =
@@ -53,12 +53,8 @@ class CartOverlay extends Component {
       document.querySelectorAll("input[type='number']").forEach((input) => {
         input.id === e.target.nextSibling.id && ++input.value;
       });
-      //   this.setState((state) => ({
-      //     counter: ++state.counter,
-      //   }));
     } else if (e.target.id === "counter-minus") {
       document.querySelectorAll("input[type='number']").forEach((input) => {
-        // if (this.state.counter === 1) {
         if (input.id === e.target.previousSibling.id && input.value <= 1) {
           const str =
             e.target.parentNode.previousSibling.childNodes[0].textContent;
@@ -68,25 +64,15 @@ class CartOverlay extends Component {
           this.props.cartToDelete(elementToDelete);
         } else {
           input.id === e.target.previousSibling.id && --input.value;
-          // this.setState((state) => ({
-          //   counter: --state.counter,
-          // }));
         }
       });
     }
 
-    setTimeout(() => this.calcTotal(), 100)
+    setTimeout(() => this.calcTotal(), 100);
   }
 
   componentDidMount() {
     this.timerID = setTimeout(() => this.calcTotal(), 300);
-    const x = [];
-    let y = 1;
-    for (let input of this.context.inputs) {
-      if (!x.map((xEl) => xEl[0]).includes(input[0])) {
-        x.push(input);
-      }
-    }
   }
 
   componentWillUnmount() {
@@ -94,8 +80,7 @@ class CartOverlay extends Component {
   }
 
   render() {
-    //   const cart = JSON.parse(sessionStorage.getItem("cart"))
-    //   console.log(cart);
+
 
     return (
       <>
@@ -106,7 +91,7 @@ class CartOverlay extends Component {
           </h3>
           <ul>
             {this.context.cartProducts.map((product) => (
-              <li className="cart-overlay__item">
+              <li className="cart-overlay__item" id={product.id}>
                 <div className="cart-overlay__info">
                   <div>
                     <h4 className="cart-overlay__name">

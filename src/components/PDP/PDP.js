@@ -37,7 +37,6 @@ class PDP extends Component {
     if (e.target.classList.contains("pdp__button")) {
       this.props.onAddToCart(inputArr)
     }
-    
   }
 
   render() {

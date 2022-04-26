@@ -1,0 +1,86 @@
+.modal__overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100vh;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+}
+
+.modal__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 400px;
+    min-height: 300px;
+    padding: 70px 20px 30px;
+}
+
+.modal__close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.modal__title {
+    margin-bottom: 30px;
+}
+
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product__title {
+    margin-bottom: 35px;
+    width: fit-content;
+}
+
+.product__image {
+    min-height: 80px;
+    width: 80px;
+    overflow: hidden;
+}
+
+.product__image-img {
+    width: 80px;
+    height: auto;
+}
+
+.modal__container .attributes {
+    margin-top: 20px;
+}
+
+.modal__container .pdp__price {
+    display: none;
+}
+
+.modal__container .pdp__button {
+    margin: 0;
+}
+
+.modal__close-btn::before,
+.modal__close-btn::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    background-color: #ddd;
+}
+
+.modal__close-btn::before {
+    transform: rotate(-45deg) translate(-9px, 5px);
+}
+
+.modal__close-btn::after {
+    transform: rotate(45deg) translate(5px, 9px);
+}

@@ -67,7 +67,7 @@ class App extends React.Component {
     }));
   }
 
-  loadPDP(productId) {
+  loadPDP(productId, toLoadPDP = true) {
     const product = {
       ...this.state.selectedCategory.products.filter(
         (product) => product.id === productId
@@ -75,8 +75,8 @@ class App extends React.Component {
     };
     this.setState((state) => ({
       selectedProduct: product,
-      PLP: false,
     }));
+    toLoadPDP && this.setState({PLP: false})
   }
 
   cartOverlayHandler() {
@@ -97,13 +97,12 @@ class App extends React.Component {
     const repeatingProduct = this.state.cartProducts
       .map((product) => product.id)
       .filter((id) => id === this.state.selectedProduct.id);
+    //   console.log(repeatingProduct.length);
     if (repeatingProduct.length === 0) {
       this.setState((state) => ({
         cartProducts: [
           ...new Set([...state.cartProducts, this.state.selectedProduct]),
         ],
-        // inputs: [...new Set([...state.inputs, ...arr])],
-        // [...new Set(myArray)]
       }));
 
       const strSelectedProduct = JSON.stringify([
@@ -114,10 +113,9 @@ class App extends React.Component {
     }
     this.setState((state) => ({
       inputs: [...new Set([...state.inputs, ...arr])],
-      // [...new Set(myArray)]
     }));
-      const strInputs = JSON.stringify([...this.state.inputs, ...arr]);
-      sessionStorage.setItem("inputs", strInputs);
+    const strInputs = JSON.stringify([...this.state.inputs, ...arr]);
+    sessionStorage.setItem("inputs", strInputs);
   }
 
   cartToDelete(elementToDelete) {
@@ -171,7 +169,7 @@ class App extends React.Component {
             onCart={this.cartOverlayHandler}
             cartToDelete={this.cartToDelete}
           />
-          {this.state.PLP && <PLP onProduct={this.loadPDP} />}
+          {this.state.PLP && <PLP onProduct={this.loadPDP} onAddToCart={this.addToCart}/>}
           {!this.state.PLP && <PDP onAddToCart={this.addToCart} />}
         </productContext.Provider>
       </React.Fragment>
