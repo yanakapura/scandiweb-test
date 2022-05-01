@@ -8,7 +8,8 @@ const productContext = React.createContext({
   selectedProduct: "",
   cartOverlay: false,
   cartProducts: [],
-  inputs: []
+  inputs: [],
+  tax: 0
 });
 
 export default productContext;

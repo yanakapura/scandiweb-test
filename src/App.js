@@ -6,12 +6,15 @@ import "./App.css";
 import productContext from "./store/context";
 import PLP from "./components/PLP/PLP";
 import PDP from "./components/PDP/PDP";
+import Cart from "./components/Cart/Cart";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       PLP: true,
+      PDP: false,
+      Cart: false,
       selectedCategory: this.props.data,
       selectedCurrency: "$",
       categories: this.props.data.categories,
@@ -28,6 +31,7 @@ class App extends React.Component {
     this.closeCartOverlay = this.closeCartOverlay.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.cartToDelete = this.cartToDelete.bind(this);
+    this.loadCart = this.loadCart.bind(this);
   }
 
   updateState(selectedCategoryName) {
@@ -37,6 +41,8 @@ class App extends React.Component {
           return category.name === selectedCategoryName;
         })[0],
         PLP: true,
+        PDP: false,
+        Cart: false,
       });
   }
 
@@ -76,7 +82,11 @@ class App extends React.Component {
     this.setState((state) => ({
       selectedProduct: product,
     }));
-    toLoadPDP && this.setState({PLP: false})
+    toLoadPDP && this.setState({ PLP: false, PDP: true, Cart: false });
+  }
+
+  loadCart() {
+    this.setState({ PLP: false, PDP: false, Cart: true, cartOverlay: false });
   }
 
   cartOverlayHandler() {
@@ -119,16 +129,13 @@ class App extends React.Component {
   }
 
   cartToDelete(elementToDelete) {
+    console.log(elementToDelete);
     this.setState((state) => ({
       cartProducts: state.cartProducts.filter(
         (product) => product.id !== elementToDelete.id
       ),
     }));
-    // console.log(
-    //   JSON.parse(sessionStorage.getItem("cart")).filter(
-    //     (product) => product.id !== elementToDelete.id
-    //   )
-    // );
+
     const newInputs = JSON.parse(sessionStorage.getItem("inputs")).filter(
       (input) => input[0] !== elementToDelete.id
     );
@@ -160,6 +167,7 @@ class App extends React.Component {
             cartOverlay: this.state.cartOverlay,
             cartProducts: this.state.cartProducts,
             inputs: this.state.inputs,
+            tax: 0.15
           }}
         >
           <Header
@@ -168,9 +176,13 @@ class App extends React.Component {
             onCloseCartOverlay={this.closeCartOverlay}
             onCart={this.cartOverlayHandler}
             cartToDelete={this.cartToDelete}
+            onViewBag={this.loadCart}
           />
-          {this.state.PLP && <PLP onProduct={this.loadPDP} onAddToCart={this.addToCart}/>}
-          {!this.state.PLP && <PDP onAddToCart={this.addToCart} />}
+          {this.state.PLP && (
+            <PLP onProduct={this.loadPDP} onAddToCart={this.addToCart} />
+          )}
+          {this.state.PDP && <PDP onAddToCart={this.addToCart} />}
+          {this.state.Cart && <Cart cartToDelete={this.cartToDelete}/>}
         </productContext.Provider>
       </React.Fragment>
     );

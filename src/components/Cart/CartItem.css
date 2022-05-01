@@ -1,0 +1,108 @@
+.cart-item {
+  padding: 24px 0 32px;
+  display: flex;
+  justify-content: space-between;
+  /* min-height: 330px; */
+  /* border-bottom: ; */
+}
+
+.cart-item__brand {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 45px;
+}
+
+.cart-item__name {
+  font-weight: 400;
+}
+
+.cart-item .price {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 10px 0 20px;
+}
+
+.cart-item .attributes__list {
+  display: block;
+  /* font-size: 11px; */
+}
+
+.cart-item .attribute__name {
+  display: block;
+  font-family: "Roboto Condensed";
+  font-weight: 700;
+  font-size: 18px;
+  margin: 16px 0 8px;
+}
+
+.cart-item .attribute__value {
+  width: 63px;
+  height: 45px;
+}
+
+.cart-item .attribute__value span {
+  display: inline-block;
+  transform: translateY(50%);
+  line-height: 21px;
+}
+
+.cart-item .attribute__value-disable {
+  background-color: transparent;
+  opacity: 1;
+  filter: none;
+  color: #1d1f22;
+}
+
+.cart-item__image {
+  height: 100%;
+  width: 200px;
+  overflow: hidden;
+  /* display: contents; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-item__image img {
+  height: 200px;
+  width: auto;
+  margin: auto 0;
+}
+
+.cart-item .attribute__value-color {
+  width: 32px;
+  height: 32px;
+}
+
+.cart-item__counter {
+  display: flex;
+}
+
+.cart-item__counter .counter {
+  align-items: center;
+}
+
+.cart-item__counter .counter-input {
+  font-size: 24px;
+  font-weight: 500;
+  font-family: "Raleway", sans-serif;
+}
+
+.cart-item__counter .counter span {
+  height: 45px;
+  width: 45px;
+}
+
+.cart-item__counter .counter span::before {
+  height: 1px;
+  width: 15px;
+}
+
+.cart-item__counter .counter span:first-child::after {
+  height: 15px;
+  width: 1px;
+}
+
+.cart-item__item:last-child {
+    display: flex
+}

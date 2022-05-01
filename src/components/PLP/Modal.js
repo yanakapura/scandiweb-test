@@ -16,7 +16,6 @@ class Modal extends Component {
       e.target.classList.contains("modal__overlay") ||
       e.target.classList.contains("modal__close-btn")
     ) {
-      console.log("close");
       this.props.onCloseModal();
     }
   }

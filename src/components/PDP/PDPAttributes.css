@@ -32,7 +32,6 @@
 
 .form-group {
   display: inline-block;
-  /* overflow: hidden; */
   border: none;
 }
 .form-group input[type="radio"] {
@@ -43,8 +42,14 @@
 .form-group input[type="radio"]:checked + label {
   background: #1d1f22;
   color: #fff;
-  border: 3px solid #1d1f22;
-  /* margin: 2px; */
+  outline-offset: 1px;
+}
+
+#color input[type="radio"]:checked + label {
+  background: #1d1f22;
+  color: #fff;
+  outline: 2px solid #5ece7b;
+  outline-offset: 1px;
 }
 
 /* Hover */

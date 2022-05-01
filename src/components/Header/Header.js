@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
 import cart from "../../UI/EmptyCart.svg";
+import logo from "../../UI/Logo.svg"
 import Navigation from "./Navigation";
 import Currencies from "./Currencies";
 import CartOverlay from "./CartOverlay";
@@ -33,6 +34,9 @@ class Header extends React.Component {
     if (e.target.classList.contains("cart-overlay__wrapper")) {
       this.props.onCloseCartOverlay();
     }
+    if(e.target.classList.contains("view-bag__btn")) {
+      this.props.onViewBag()
+    }
   }
 
   cartOverlayHandler(e) {
@@ -52,6 +56,7 @@ class Header extends React.Component {
     return (
       <header className="header" onClick={this.clickHandler}>
         <Navigation onNavigationChange={this.changeNavigation} />
+          <img className="logo__img" src={logo} />
         <div className="actions">
           <Currencies onCurrencySet={this.changeCurrency} />
           <img className="cart__img" src={cart} onClick={this.cartOverlayHandler} />

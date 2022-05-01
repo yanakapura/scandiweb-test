@@ -35,7 +35,7 @@ class PDPAttributes extends Component {
         {this.context.selectedProduct.attributes.map((attribute) => (
           <li key={attribute.name} className="attributes__attribute">
             <h3 className="attributes__title">{attribute.name}:</h3>
-            <fieldset id={attribute.name} className="form-group">
+            <fieldset id={attribute.name.toLowerCase()} className="form-group">
               {attribute.items.map((item) => (
                 <li className="form-group__item" key={item.value}>
                   <input
@@ -47,7 +47,7 @@ class PDPAttributes extends Component {
                     onClick={this.btnCheck}
                   />
                   <label
-                    className=" attributes__value"
+                    className={`attributes__value ${attribute.name === "Color" && "attributes__value-color"}`}
                     htmlFor={`${item.value}_${attribute.name}`}
                     style={{
                       backgroundColor:
