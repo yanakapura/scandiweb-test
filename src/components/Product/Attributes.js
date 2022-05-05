@@ -9,16 +9,20 @@ class Attributes extends Component {
         this.isSelected = this.isSelected.bind(this)
     }
 
-  isSelected(productId, attributeName, itemValue) {
+    isSelected(productId, attributeName, itemValue) {
     for (let input of this.context.inputs) {
-      if (
-        input[0] === productId &&
-        input[1] === itemValue &&
-        input[2] === attributeName
-      ) {
-        return true;
-      }
-    }
+      // if (!x.map(x1=>x1[0]).includes(input[0])) {
+        // x.push(input)
+        // console.log("x = ", x);
+        if (
+          input[0] === productId &&
+          input[1] === itemValue &&
+          input[2] === attributeName
+          ) {
+            return true;
+          }
+        }
+      // }
   }
 
   render() {

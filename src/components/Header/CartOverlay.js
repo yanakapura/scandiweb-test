@@ -57,7 +57,7 @@ class CartOverlay extends Component {
           </h3>
           <ul>
             {this.context.cartProducts.map((product) => (
-              <li className="cart-overlay__item" id={product.id}>
+              <li className="cart-overlay__item" id={product.id + `_${(Math.random()*1000000).toFixed()}`}>
                 <div className="cart-overlay__info">
                   <div>
                     <h4 className="cart-overlay__name">

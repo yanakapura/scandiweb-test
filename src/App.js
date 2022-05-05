@@ -107,7 +107,6 @@ class App extends React.Component {
     const repeatingProduct = this.state.cartProducts
       .map((product) => product.id)
       .filter((id) => id === this.state.selectedProduct.id);
-    //   console.log(repeatingProduct.length);
     if (repeatingProduct.length === 0) {
       this.setState((state) => ({
         cartProducts: [
@@ -122,7 +121,7 @@ class App extends React.Component {
       sessionStorage.setItem("cart", strSelectedProduct);
     }
     this.setState((state) => ({
-      inputs: [...new Set([...state.inputs, ...arr])],
+      inputs: [...state.inputs, ...arr],
     }));
     const strInputs = JSON.stringify([...this.state.inputs, ...arr]);
     sessionStorage.setItem("inputs", strInputs);
@@ -150,11 +149,6 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log();
-    // const str = JSON.stringify(this.state.selectedProduct)
-    // console.log(str);
-    // sessionStorage.setItem("object", str)
-    // console.log(JSON.parse(str));
     return (
       <React.Fragment>
         <productContext.Provider
